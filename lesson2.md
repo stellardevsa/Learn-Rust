@@ -299,7 +299,7 @@ fn main() {
 
 ## Part 6: Hands-On Exercise - Salary Calculator
 
-Let's build a salary calculator that handles different tax brackets:
+Let's build a Rust program that calculates the tax, net salary, and salary level of employees based on their gross salary
 
 ```rust
 //Write a function calc_tax(salary: f64) -> f64 
