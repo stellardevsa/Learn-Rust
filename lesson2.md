@@ -385,9 +385,10 @@ fn main(){
 ### Assigment!
 Try modifying the calculator:
 1. Change the tax brackets
-2. Add a function to calculate monthly salary (divide by 12)
-3. Add bonus calculation (+3000 for Entry, +5000 for mid, +8% for Senior, 10000 + 8% for Executive)
-4. Add error messages for input of negative salaries
+2. Assume the salary are yearly salaries, add a function to calculate monthly salary (divide by 12)
+3. Write a function that calculates the total salary (including bonus) by adding a bonus based on the employee's level:
+   +3000 for Entry, +5000 for Mid, +8% of salary for Senior, and 10000 + 8% of salary for Executive.
+5. Bonus Question: Add error messages for input of negative salaries
 
 ---
 
