@@ -327,13 +327,59 @@ Let's build a Rust program that calculates the tax, net salary, and salary level
 
 
 
-fn main() {
-
-
-
-
+fn calc_tax(salary: f64) -> f64 {
+    if salary <= 20000.0 {
+        0.0
+    }
+    else if salary <= 50000.0{
+        1500.0 + (salary * 0.10)
+    }
+    else if salary <= 100000.0{
+        3000.0 + (salary* 0.20)
+    }
+    else {
+        13000.0 + (salary* 0.30)
+    }
+    
 }
 
+fn net_salary(gross: f64) -> Result <f64, &'static str> {
+    
+    if gross < 0.0 {
+        Err("Invalid Input")
+    }
+    else {
+        
+        Ok(gross - calc_tax(gross))
+    }
+    
+}
+
+
+fn salary_level(salary: f64) -> &'static str {
+    
+    match salary {
+        0.0..=20000.0 => "Entry",
+        20000.0..=50000.0 => "Mid",
+        50000.0..=100000.0 => "Senior",
+        _ => "Executive",
+    }
+    
+}
+
+fn main(){
+    
+    let salaries = [18000.0, 15000.0, -45000.0, 38000.0,108000.0, 300000.0, 77000.0];
+    println!("Salaries, Tax, Net Salary");
+    println!("------------------------------");
+    
+    for i in 0..= 6 {
+        println!("{}, {}, {:?}, {}", salaries[i], calc_tax(salaries[i]), net_salary(salaries[i]), salary_level(salaries[i]));
+    }
+    
+    
+    
+}
 ```
 
 ### Assigment!
