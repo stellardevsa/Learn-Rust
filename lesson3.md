@@ -195,19 +195,256 @@ fn main() {
 We’ll store books in a **HashMap**, where the **key** is the **ISBN** and the value is a Book struct with details.
 
 ```rust
-
 use std::collections::HashMap;
 
 #[derive(Debug)]
+struct Book {
+    title: String,
+    author: String,
+    quantity: u32,
+}
 
 fn main() {
+    let mut inventory = HashMap::new();
 
     // Add books
+    inventory.insert("978-1", Book { 
+        title: "Rust Book".to_string(),
+        author: "Steve".to_string(),
+        quantity: 5,
+    });
+
     // Look up a book
+    if let Some(book) = inventory.get("978-1") {
+        println!("Found: {:?} ({} copies)", book.title, book.quantity);
+    }
+
     // List all books
+    for (isbn, book) in &inventory {
+        println!("{}: {:?} by {}", isbn, book.title, book.author);
+    }
+}
 
 
 ```
+Another way to implement this code using functions.
+
+```rust
+use std::collections::HashMap;
+
+#[derive(Debug)]
+struct Book {
+    title: String,
+    author: String,
+    quantity: u32,
+}
+
+// Function to add a book
+fn add_book(inventory: &mut HashMap<String, Book>, isbn: &str, title: &str, author: &str, quantity: u32) {
+    inventory.insert(
+        isbn.to_string(),
+        Book {
+            title: title.to_string(),
+            author: author.to_string(),
+            quantity,
+        },
+    );
+}
+
+// Function to look up a book
+fn lookup_book(inventory: &HashMap<String, Book>, isbn: &str) {
+    if let Some(book) = inventory.get(isbn) {
+        println!("Found: {} by {} ({} copies)", book.title, book.author, book.quantity);
+    } else {
+        println!("Book with ISBN {} not found.", isbn);
+    }
+}
+
+// Function to list all books
+fn list_books(inventory: &HashMap<String, Book>) {
+    println!("\nInventory:");
+    for (isbn, book) in inventory {
+        println!("{}: {} by {} ({} copies)", isbn, book.title, book.author, book.quantity);
+    }
+}
+
+fn main() {
+    let mut inventory = HashMap::new();
+
+    // Add books
+    add_book(&mut inventory, "978-1", "Rust Book", "Steve", 5);
+    add_book(&mut inventory, "978-2", "Programming in Rust", "Carol", 3);
+
+    // Look up a book
+    lookup_book(&inventory, "978-1");
+    lookup_book(&inventory, "999-9"); // Example of a missing book
+
+    // List all books
+    list_books(&inventory);
+}
+
+```
+
+This Rust program is a **mini library system**.  
+It lets you:
+- **Add books** to an inventory
+- **Look up a book** by ISBN
+- **List all books** currently in the inventory
+
+### Code Overview
+
+**1. Importing HashMap**
+```rust
+use std::collections::HashMap;
+````
+
+We use Rust’s **HashMap**, which stores data as **key → value** pairs.
+
+* **Key** = ISBN (book code, e.g., `"978-1"`)
+* **Value** = `Book` (the actual book info)
+
+---
+
+**2. Defining the `Book` struct**
+
+```rust
+#[derive(Debug)]
+struct Book {
+    title: String,
+    author: String,
+    quantity: u32,
+}
+```
+
+* A `struct` groups related data together.
+* Each `Book` has:
+
+  * `title` → the book’s name
+  * `author` → who wrote it
+  * `quantity` → how many copies are available
+* `#[derive(Debug)]` lets us print books easily.
+
+---
+
+**3. Adding a Book**
+
+```rust
+fn add_book(inventory: &mut HashMap<String, Book>, isbn: &str, title: &str, author: &str, quantity: u32) {
+    inventory.insert(
+        isbn.to_string(),
+        Book {
+            title: title.to_string(),
+            author: author.to_string(),
+            quantity,
+        },
+    );
+}
+```
+
+* `&mut` means we can **change** the inventory.
+* `insert()` adds a new key (ISBN) and value (`Book`) into the HashMap.
+
+---
+
+**4. Looking Up a Book**
+
+```rust
+fn lookup_book(inventory: &HashMap<String, Book>, isbn: &str) {
+    if let Some(book) = inventory.get(isbn) {
+        println!("Found: {} by {} ({} copies)", book.title, book.author, book.quantity);
+    } else {
+        println!("Book with ISBN {} not found.", isbn);
+    }
+}
+```
+
+* Searches for a book by ISBN.
+* If found → prints details.
+* If not → prints “not found”.
+
+---
+
+**5. Listing All Books**
+
+```rust
+fn list_books(inventory: &HashMap<String, Book>) {
+    println!("\nInventory:");
+    for (isbn, book) in inventory {
+        println!("{}: {} by {} ({} copies)", isbn, book.title, book.author, book.quantity);
+    }
+}
+```
+
+* Loops through all books in the inventory.
+* Prints ISBN, title, author, and number of copies.
+
+---
+
+**6. The Main Function**
+
+```rust
+fn main() {
+    let mut inventory = HashMap::new();
+
+    // Add books
+    add_book(&mut inventory, "978-1", "Rust Book", "Steve", 5);
+    add_book(&mut inventory, "978-2", "Programming in Rust", "Carol", 3);
+
+    // Look up books
+    lookup_book(&inventory, "978-1");
+    lookup_book(&inventory, "999-9"); // Example of a missing book
+
+    // List all books
+    list_books(&inventory);
+}
+```
+
+* Creates an empty `inventory`.
+* Adds two books.
+* Looks up:
+
+  * ISBN `"978-1"` → found 
+  * ISBN `"999-9"` → not found
+* Lists all books.
+
+---
+
+**Example Output**
+
+When running the program, you’ll see:
+
+```
+Found: Rust Book by Steve (5 copies)
+Book with ISBN 999-9 not found.
+
+Inventory:
+978-1: Rust Book by Steve (5 copies)
+978-2: Programming in Rust by Carol (3 copies)
+```
+
+---
+
+**Visual Representation**
+
+```
+Inventory (HashMap)
+
+Key (ISBN)   →   Value (Book)
+----------------------------------------
+"978-1"      →   { title: "Rust Book", author: "Steve", quantity: 5 }
+"978-2"      →   { title: "Programming in Rust", author: "Carol", quantity: 3 }
+```
+
+---
+
+### Summary
+
+This program is like a **mini library system** using Rust’s:
+
+* `struct` → to define a Book
+* `HashMap` → to store ISBN → Book mappings
+* Functions → to add, search, and list books
+
 
 **Your challenge**
 
