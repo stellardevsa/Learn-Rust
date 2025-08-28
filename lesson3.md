@@ -1,4 +1,5 @@
 # Session 3: Collections & Data Organization
+[View on Github](https://github.com/stellardevsa/Learn-Rust/blob/main/lesson3.md)
 
 ## Session Overview
 Welcome back!  
