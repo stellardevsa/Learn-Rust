@@ -1,6 +1,9 @@
 
 # Class 1: Getting Started with Soroban Smart Contracts
 
+### View on GitHub
+https://github.com/stellardevsa/Learn-Rust/edit/main/1_soroban.md
+
 **Objective:** Learn how to write, build, and test your very first Soroban smart contract.
 
 ---
@@ -23,7 +26,8 @@
 
 ## Part 2: Writing Our First Contract
 
-### Set Up -> https://developers.stellar.org/docs/build/smart-contracts/getting-started/setup
+### Set up before you read further -> 
+https://developers.stellar.org/docs/build/smart-contracts/getting-started/setup
 
 Here’s the code we’ll work with:
 
@@ -190,7 +194,7 @@ Deploy to the TestNet https://developers.stellar.org/docs/build/smart-contracts/
 * Change the contract so it returns: `["Hi", <name>]`.
 * Run the test and see it fail.
 * Update the test to expect `"Hi"` instead of `"Hello"`.
-* Run the test again and see it pass. 🎉
+* Run the test again and see it pass. 
 
 ### Homework
 
@@ -200,7 +204,7 @@ Deploy to the TestNet https://developers.stellar.org/docs/build/smart-contracts/
 
 ---
 
-By the end of this class, students will:
+By the end of this class, you should:
 
 * Understand the difference between normal Rust and Soroban Rust.
 * Know how to write and expose a smart contract function.
