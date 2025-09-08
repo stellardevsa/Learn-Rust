@@ -1,6 +1,9 @@
 
 # Session 4: Structs, Methods & Code Organization
 
+### View on Github
+https://github.com/stellardevsa/Learn-Rust/edit/main/lesson4.md
+
 ## Session Overview
 
 Welcome back!  
