@@ -1,7 +1,6 @@
 
 # Class 1: Getting Started with Soroban Smart Contracts
 
-**Duration:** 1 hour
 **Objective:** Learn how to write, build, and test your very first Soroban smart contract.
 
 ---
