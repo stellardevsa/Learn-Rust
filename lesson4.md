@@ -39,7 +39,7 @@ Think: "me, this particular car."
 
 There are 3 common ways to use it:
 
-**1. ``&self`` → Borrow immutably**
+**1. ``&self`` -> Borrow immutably**
 
 This means: "I just want to look at the car, not change it."
 
@@ -54,7 +54,7 @@ impl Car {
 - ``&self`` = "borrow the car to read it."
 - Doesn’t take ownership, doesn’t change anything.
 
-**2. ``&mut`` self → Borrow mutably**
+**2. ``&mut`` self -> Borrow mutably**
 
 This means: "I want to change the car a bit, but I’ll give it back."
 
@@ -70,7 +70,7 @@ impl Car {
 
 - Still doesn’t take ownership; just temporarily mutably borrows it.
 
-**3. ``self`` → Take ownership**
+**3. ``self`` -> Take ownership**
 
 This means: "I’m taking the whole car, you won’t have it anymore after this."
 
@@ -89,9 +89,9 @@ impl Car {
 
 Think of ``self`` as a **car in a garage:**
 
-- ``&self`` → You look at the car.
-- ``&mut self`` → You tune up the car.
-- ``self`` → You drive the car away forever.
+- ``&self`` -> You look at the car.
+- ``&mut self`` -> You tune up the car.
+- ``self`` -> You drive the car away forever.
 
 ---
 
@@ -210,11 +210,11 @@ fn main() {
 
 ### Key Idea about ``self``:
 
-- ``&self`` → borrows the struct (just looks at data, no change)
+- ``&self`` -> borrows the struct (just looks at data, no change)
 
-- ``&mut`` self → borrows mutably (changes the struct)
+- ``&mut`` self -> borrows mutably (changes the struct)
 
-- ``self`` (no ``&``) → takes ownership (moves the struct)
+- ``self`` (no ``&``) -> takes ownership (moves the struct)
 
 - ``impl`` is how we “teach” our struct new behaviours.
 
@@ -289,9 +289,9 @@ fn main() {
 
 ### Key Idea:
 
-- ``Ok(value)`` → success
+- ``Ok(value)`` -> success
 
-- ``Err(message)`` → failure
+- ``Err(message)`` -> failure
 
 This forces you to handle errors instead of ignoring them.
 
