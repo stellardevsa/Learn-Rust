@@ -131,8 +131,17 @@ fn test_counter() {
 
 Tests prove the contract behaves exactly as expected.
 
+
 ## Part 4: Practice & Homework
 
 Follow the Hello World and Storing Data Tutorial on Dev Docs https://developers.stellar.org/docs/build/smart-contracts/getting-started/hello-world
+
+## By the end of this class, you should:
+
+- Understand storage and state in Soroban.
+
+- Be able to create, update, and retrieve persistent data.
+
+- Write meaningful tests for stateful contracts.
 
 
