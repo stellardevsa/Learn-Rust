@@ -1,6 +1,9 @@
 # Class 2: Building a Counter Smart Contract  
 **Objective:** Learn how to store, update, and retrieve data in Soroban smart contracts using the blockchain environment.  
 
+## View on Github ->
+https://github.com/stellardevsa/Learn-Rust/blob/main/2_soroban.md
+
 ---
 
 ## Part 1: Why State Matters  
