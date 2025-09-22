@@ -24,6 +24,8 @@ impl IncrementContract {
         count
     }
 }
+
+mod test;
 ```
 
 And here is the test code for it:
