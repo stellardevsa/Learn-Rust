@@ -1,4 +1,5 @@
-## Soroban Project Assignment: Library Management Smart Contract (Deadline 15 October 11:59PM CAT)
+## Soroban Project Assignment: Library Management Smart Contract 
+## (Deadline 15 October 11:59PM CAT)
 
 **Objective:**
 Create a **Library smart contract** using Soroban where users can store and manage a collection of books.
